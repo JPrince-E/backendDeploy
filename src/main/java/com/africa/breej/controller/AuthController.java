@@ -5,10 +5,7 @@ import com.africa.breej.payload.auth.SignUpRequest;
 import com.africa.breej.service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 
@@ -28,5 +25,10 @@ public class AuthController {
         URI location = authService.createUser(signUpRequest);
 
         return ResponseEntity.ok("User registered successfully");
+    }
+
+    @GetMapping("/hello")
+    public String sayHello() {
+        return "Hello, World!";
     }
 }
