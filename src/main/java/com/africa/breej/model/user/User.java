@@ -1,5 +1,6 @@
 package com.africa.breej.model.user;
 
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 
@@ -12,8 +13,15 @@ import java.time.LocalDateTime;
 
 @Getter
 @Setter
-@Document(collection = "project_breej_db_user")
+//@Document(collection = "project_breej_db_user")
+@Entity
+@Table(name = "user")
 public class User {
+    @javax.persistence.Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "uid", nullable = false)
+    private int uid;
+
     @Id
     private String id;
 
